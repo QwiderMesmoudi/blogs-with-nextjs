@@ -4,6 +4,8 @@ import Header from "@/components/Header";
 import Featured from "@/components/Featured";
 import Blogs from "@/components/Blogs";
 import Footer from "@/components/Footer";
+import { collection, getDocs } from "firebase/firestore";
+import { db } from "@/firebase";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -16,7 +18,7 @@ const geistMono = localFont({
   weight: "100 900",
 });
 
-export default function Home() {
+export default function Home({blogs}) {
   return (
     <div className=" w-[100vw] overflow-x-hidden">
       <div className="mx-auto max-w-6xl">
@@ -26,7 +28,7 @@ export default function Home() {
         <Featured/>
         
         <main>
-        <Blogs/>
+        <Blogs blogs={JSON.parse(blogs)}/>
         </main>
 
       </div>
@@ -34,6 +36,29 @@ export default function Home() {
     </div>
   );
 }
+
+export async function getServerSideProps() {
+  let blogs = [];
+
+  try {
+    const querySnapshot = await getDocs(collection(db, 'blogs'));
+    blogs = querySnapshot.docs.map((doc) => ({
+      id: doc.id,
+      ...doc.data(),
+    }));
+  } catch (error) {
+    console.error("Error fetching blogs: ", error);
+  }
+
+  return {
+    props: {
+      blogs:JSON.stringify(blogs),
+    },
+  };
+}
+
+
+
 
 /**
  {
