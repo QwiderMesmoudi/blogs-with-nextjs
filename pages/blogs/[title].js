@@ -9,7 +9,8 @@ function BlogDetail() {
     const router =useRouter()
     const {title}=router.query
     const   blog = BLOGS.find((blog) => blog.title === title);
-  return ({blog}&&
+    if(blog){
+    return (
     <div className=" w-[100vw] overflow-x-hidden">
       <div className="mx-auto max-w-6xl">
         {/**this is the nav bar */}
@@ -42,6 +43,12 @@ function BlogDetail() {
       <Footer/>
     </div>
   )
+    }
+    else{
+        return(
+            <div className='flex items-center justify-center font-bold '>404 blog not found</div>
+        )
+    }
 }
 
 export default BlogDetail;
