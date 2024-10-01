@@ -11,25 +11,31 @@ function Header() {
     };
     const router=useRouter()
   return (
-    <div className='flex  w-[90vw] justify-between p-5 shadow-sm border-b-2 fixed top-0  bg-white z-50'>
+    <div className='flex  w-[100vw] px-10 lg:pr-32  justify-between p-5 shadow-sm border-b-2 fixed top-0  bg-white z-50 items-center'>
         <div onClick={()=>{
             router.push('/')
         }} className='cursor-pointer'>
             <Image src='https://dopetgztsfho3.cloudfront.net/Logo_DS_blue_bb827584c6.webp' width={150} height={20}/>
         </div>
-        <div className={` md:flex   space-x-5 font-semibold text-lg ${isOpen ? 'flex flex-col items-center' : 'hidden'}`}>
-            <div className='flex space-x-2 items-center'>Services
+
+        
+
+        <div className={` md:flex   space-x-5  text-md ${isOpen ? 'flex flex-col items-center' : 'hidden'}`}>
+            <div className='flex cursor-pointer  space-x-2 items-center'><p>Services</p>
                 <ChevronDownIcon className='w-5 h-5'/>
             </div >
-            <div className='flex space-x-2 items-center'>Expertise 
+            <div className='flex cursor-pointer space-x-3 items-center'><p>Expertise</p> 
             <ChevronDownIcon className='w-5 h-5'/>
+            </div>
+            <div className='flex cursor-pointer space-x-2 items-center' ><p>Case Studies</p>
+            
             </div>
             <div className='flex space-x-2 items-center cursor-pointer' onClick={()=>{
             router.push('/write')
         }}>Blog
             
             </div>
-            <div className='flex space-x-2 items-center' >Company
+            <div className='flex space-x-2 items-center' ><p>Company</p>
             <ChevronDownIcon className='w-5 h-5'/>
             </div>
             
