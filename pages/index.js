@@ -20,8 +20,8 @@ const geistMono = localFont({
 
 export default function Home({blogs}) {
   return (
-    <div className=" w-[100vw] overflow-x-hidden">
-      <div className="mx-auto max-w-6xl">
+    <div className=" overflow-x-hidden">
+      <div className="mx-auto px-16">
         {/**this is the nav bar */}
         <Header/>
         {/** this is the latest post */}

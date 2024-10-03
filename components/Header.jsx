@@ -11,7 +11,7 @@ function Header() {
     };
     const router=useRouter()
   return (
-    <div className='flex  w-[100vw] px-10 lg:pr-32  justify-between p-5 shadow-sm border-b-2 fixed top-0  bg-white z-50 items-center'>
+    <div className='flex w-[100%]    justify-between py-5 pl-8 pr-24 shadow-sm border-b-2 fixed top-0  bg-white z-50 items-center'>
         <div onClick={()=>{
             router.push('/')
         }} className='cursor-pointer'>
